@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Perlengkapan Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Toko Ceria</h1>
+        <nav>
+            <a href="#produk">Produk</a>
+            <a href="#formPesan">Pesan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="produk" id="produk">
+            <h2>Produk Unggulan</h2>
+            <div class="daftar-produk">
+                <article class="kartu-produk">
+                    <img src="img/buku.png" alt="Buku Tulis" class="gambar-produk">
+                    <h3>Buku Tulis</h3>
+                    <p class="harga">Rp8.000</p>
+                </article>
+                <article class="kartu-produk">
+                    <img src="img/tas.png" alt="Tas Sekolah" class="gambar-produk">
+                    <h3>Tas Sekolah</h3>
+                    <p class="harga">Rp125.000</p>
+                </article>
+                <article class="kartu-produk">
+                    <img src="img/pulpen.png" alt="Pulpen" class="gambar-produk">
+                    <h3>Pulpen</h3>
+                    <p class="harga">Rp3.000</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <form id="formPesan" action="#" method="get">
+                <h2 id="judul-form">Formulir Pemesanan</h2>
+
+                <div class="form-group">
+                    <label for="nama">Nama Pemesan</label>
+                    <input type="text" id="nama" name="nama" required minlength="3" maxlength="50" pattern="[A-Za-z ]+" title="Gunakan huruf dan spasi saja">
+                </div>
+
+                <div class="form-group">
+                    <label for="hp">Nomor HP</label>
+                    <input type="tel" id="hp" name="hp" required pattern="[0-9]{10,13}" title="Isi 10 sampai 13 angka tanpa spasi atau tanda baca">
+                </div>
+
+                <div class="form-group">
+                    <label for="produk-pilihan">Produk</label>
+                    <select id="produk-pilihan" name="produk" required>
+                        <option value="">-- Pilih produk --</option>
+                        <option value="Buku Tulis">Buku Tulis</option>
+                        <option value="Tas Sekolah">Tas Sekolah</option>
+                        <option value="pulpen">Pulpen</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jumlah">Jumlah</label>
+                    <input type="number" id="jumlah" name="jumlah" required min="1" max="20">
+                </div>
+
+                <fieldset class="form-group pilihan-bayar">
+                    <legend>Metode Bayar</legend>
+                    <div class="pilihan-inline">
+                        <input type="radio" id="transfer" name="bayar" value="Transfer" required>
+                        <label for="transfer">Transfer</label>
+                        <input type="radio" id="cod" name="bayar" value="COD" required>
+                        <label for="cod">COD</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea id="alamat" name="alamat" required minlength="10" maxlength="200" rows="4"></textarea>
+                </div>
+
+                <button type="submit">Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="kontak">
+        <p>Kontak Toko Ceria: 081234567890</p>
+        <p>&copy; 2026 Toko Ceria</p>
+    </footer>
+    <script>
+        const namaInput = document.getElementById("nama");
+        namaInput.addEventListener("input", function () {
+            this.value = this.value.replace(/[^A-Za-z ]/g, "");
+        });
+    </script>
+</body>
+</html>
